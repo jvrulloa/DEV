@@ -1,0 +1,15 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"name": "DEV",
+		"path": "C:/xampp/htdocs/DEV/DEV"
+	}
+],
+  "settings": {},
+  "extensions": {
+    "recommendations": ["tal7aouy.rainbow-bracket"]
+  }
+}
