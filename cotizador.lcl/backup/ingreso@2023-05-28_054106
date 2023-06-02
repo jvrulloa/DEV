@@ -1,0 +1,217 @@
+
+<script type="text/javascript">
+  const vista = 'ingreso';
+</script>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="icon" type="image/ico" href="imagen/favicon.ico">
+
+  <title>Turnos || Leandrouno</title>
+
+  <!-- =====================================
+  PLUGINS DE CSS
+  ======================================-->
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="vistas/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="vistas/dist/css/adminlte.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" type="text/css" href="vistas/plugins/datatables/datatables.min.css"/>
+  <!-- SweetAlert 2 -->
+  <link rel="stylesheet" href="vistas/plugins/sweetalert2/sweetalert2.css">
+  <!-- Google Font: Source Andika -->
+  <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href='vistas/plugins/fullcalendar/main.min.css'>
+  <!-- jQueryUi-->
+  <link rel="stylesheet" href="vistas/plugins/jQueryUI/jquery-ui.css">
+  <!-- Select2-->
+  <link rel='stylesheet' href="vistas/plugins/select2/css/select2.css">
+  <link rel='stylesheet' href="vistas/plugins/select2/css/select2-bootstrap.css">
+  <!-- DatePicker-- -->
+  <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
+
+    <!--=====================================
+  PLUGINS DE JAVASCRIPT
+  ======================================-->
+
+  <!-- jQuery -->
+  <script src="vistas/plugins/jquery/jquery.js"></script>
+  <!-- jQueryUi-->
+  <script src="vistas/plugins/jQueryUI/jquery-ui.js"></script>
+  <!-- Bootstrap 5 -->
+  <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="vistas/dist/js/adminlte.min.js"></script>
+  <!-- DataTables -->
+  <script type="text/javascript" src="vistas/plugins/datatables/datatables.min.js"></script>
+  <!-- SweetAlert 2 -->
+  <script src="vistas/plugins/sweetalert2/sweetalert2.js"></script>
+  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- iCheck 1.0.1 -->
+  <script src="vistas/plugins/iCheck/icheck.min.js"></script>
+  <!-- FullCalendar 5.6.0 -->
+  <script src='vistas/plugins/fullcalendar/main.min.js'></script>
+  <script src='vistas/plugins/fullcalendar/locales/es.js'></script>
+  <!-- Moment -->
+  <script src='vistas/plugins/moment/moment-with-locales.min.js'></script>
+  <!-- Select2-->
+  <script src="vistas/plugins/select2/js/select2.min.js"></script>
+  <!-- DatePicker-->
+  <script src="vistas/plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Ion.sound-->
+  <script src="vistas/plugins/ion.sound/ion.sound.min.js"></script>
+
+  <style>
+  
+    .main-sidebar {
+            background-color: #040715 !important
+    }
+    
+    .cargador {
+    position: fixed;
+    z-index: 25000;
+    background: rgba(0, 0, 0, 0.97);
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:all .3s ease;
+  }
+  
+  .cargador::before {
+    content: "";
+    position: absolute;
+    border: 2px solid rgb(50, 150, 176);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-left: 2px solid rgba(50, 150, 176,0);
+    border-top: 2px solid rgba(50, 150, 176,0);
+    animation: rotarload 1s linear infinite;
+    transform: rotate(0deg);
+  }
+  
+  @keyframes rotarload {
+      0%   {transform: rotate(0deg)}
+      100% {transform: rotate(360deg)}
+  }
+  
+  .cargador::after {
+    content: "";
+    position: absolute;
+    border: 2px solid rgba(50, 150, 176,.5);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-left: 2px solid rgba(50, 150, 176, 0);
+    border-top: 2px solid rgba(50, 150, 176, 0);
+    animation: rotarload 1s ease-out infinite;
+    transform: rotate(0deg);
+  }
+  
+  </style>
+
+
+</head>
+
+
+ <style>
+  body {
+    background-color: #95b4bf;
+  }
+</style>
+
+<div id="back"></div>
+
+<div class="d-flex justify-content-center" style="padding-top: 100px">
+
+  <div class="login-box">
+
+    <div class="login-logo">
+
+      <img src="./imagen/candado.png" class="img-responsive" height="150" width="150">
+
+    </div>
+
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Ingrese al Sistema</p>
+
+        <form method="post">
+          <div class="input-group mb-3">
+            <input type="tetx" class="form-control" placeholder="Usuario" id="ingUsuario" name="ingUsuario" value="admin" autofocus required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" name="ingPassword" id="ingPassword" value="admin" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+            </div>
+
+          </div>
+
+                  </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="main-footer fixed-bottom" style="margin-left: unset;">
+
+<div class="float-right">
+  <strong>Desarrollado por <a href="https://www.leandrouno.com.ar">Leandrouno</a> &copy; 2023</strong>
+</div>
+
+Version 2.0
+</footer>
+
+<script>
+    		Swal.fire({
+			title: "Bienvenid@, podes contactarme",
+			html: '<p class="text-info text-center">Por Whatsapp al <a href="https://wa.me/541155016504">+54 1155016504</a></p><p class="text-info text-center">Por Telegram al <a href="https://t.me/Leandrouno_PHP_developer">+54 1155016504</a></p><p class="text-info text-center">Por Email a <a href="mailto:sistemas@leandrouno.com.ar">sistemas@leandrouno.com.ar</a></p>',
+			icon: "success",
+			confirmButtonText: "Probar Demo"
+		});
+</script>
+  <!-- Leandrouno-->
+  <script src="vistas/js/plantilla.js?v=1586350888"></script>
+  <script src="vistas/js/usuarios.js?v=2110307804"></script>
+  <script src="vistas/js/pacientes.js?v=1481764077"></script>
+  <script src="vistas/js/calendario.js?v=1713774185"></script>
+
+  </body>
+
+</html>

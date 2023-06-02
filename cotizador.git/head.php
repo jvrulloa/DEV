@@ -1,0 +1,36 @@
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title><?php echo $title; ?></title>
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/plugins/mdb-bootstrap/css/mdb.min.css" rel="stylesheet">
+    <!--<link href="assets/plugins/bootstrap/css/docs.css" rel="stylesheet">-->
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="assets/css/colors/blue.css" id="theme" rel="stylesheet">
+	<link rel="icon" href="assets/images/cart_icon2.png">
+	 <!--alerts CSS -->
+    <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <style>
+    .bootstrap-select .btn:focus {
+    outline: none !important;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ecdbff;
+  background-color: #000;
+}
+</style>
+
+
+
+
+
