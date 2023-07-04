@@ -4,8 +4,6 @@ include 'is_logged.php'; //Archivo verifica que el usario que intenta acceder a 
 require_once "../config/db.php"; //Contiene las variables de configuracion para conectar a la base de datos
 require_once "../config/conexion.php"; //Contiene funcion que conecta a la base de datos
 
-
-
 $action = (isset($_REQUEST['action']) && $_REQUEST['action'] != null) ? $_REQUEST['action'] : '';
 if (isset($_GET['id'])) {
     $id_cliente = intval($_GET['id']);
@@ -116,8 +114,6 @@ if ($action == 'ajax') {
           <input type="hidden" value="<?php echo $nit_cliente; ?>" id="nit_cli_<?php echo $id_cliente; ?>">
           <input type="hidden" value="<?php echo $estado_cliente; ?>" id="estado_cli_<?php echo $id_cliente; ?>">
           <input type="hidden" value="<?php echo $comercio_cliente; ?>" id="comercio_cli_<?php echo $id_cliente; ?>">
-          
-
 					<tr>
 						<td><?php echo $id_cliente.".-".$_SESSION['idDepto']; ?></td>
 						<td ><?php echo $dui_cliente; ?></td>
@@ -127,7 +123,7 @@ if ($action == 'ajax') {
             <td><a href="#" class="btn btn-outline-primary btn-rounded" role="button" aria-disabled="false" title='Editar cliente' onclick="obtener_datos('<?php echo $id_cliente; ?>');" data-bs-toggle="modal" data-bs-target="#edit"><i class="fas fa-user-plus"></i></a></td>
             <td><?php echo $fecha_reg_cliente; ?></td>
 					<td ><span class="pull-right">
-					<a href="#" class="btn btn-outline-primary btn-rounded" role="button" aria-disabled="false" title='Editar cliente' onclick="obtener_datos('<?php echo $id_cliente; ?>');" data-bs-toggle="modal" data-bs-target="#editCliente"><i class="fas fa-edit fa-lg"></i></a>
+					<a href="#" class="btn btn-outline-primary btn-rounded" role="button"  title='Editar cliente' onclick="obtener_datos('<?php echo $id_cliente; ?>');" data-bs-toggle="modal" data-bs-target="#editCliente"><i class="fas fa-edit fa-lg"></i></a>
 
 					<?php //if ($_SESSION['user_level'] == 1 OR $_SESSION['user_level'] == 11) {?>
 					<a href="#" class="btn btn-outline-danger btn-rounded" role="button" aria-disabled="false" title='Borrar cliente' onclick="eliminar('<?php echo $id_cliente; ?>')"><i class="fas fa-trash fa-lg"></i> </a>
