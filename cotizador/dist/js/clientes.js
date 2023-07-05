@@ -1,13 +1,7 @@
 		$(document).ready(function(){
 
-
-			
 			load(1);
 			
-			
-			
-			
-					
 		});
 		$("select").select2({
 			insertTag: function (data, tag) {
@@ -16,30 +10,10 @@
 			}
 		 });
 
-		$("select").select2({
-			tags: "true",
-			placeholder: "Seleccione",
-			dropdownParent: $('#editCliente .modal-body'),
-			initSelection: function(element, callback) {
-		  },
-		  
-			allowClear: true,
-			  cache: false,
-		  
-		  
-		  });
-
-		
-		  
-		  $('select:not(.normal)').each(function () {
-						  $(this).select2({
-							  dropdownParent: $(this).parent()
-						  });
-					  });
-
 		function load(page){
 			var q= $("#q").val();
 			$("#loader").fadeIn('slow');
+			
 			$.ajax({
 				url:'dist/ajax/buscar_clientes.php?action=ajax&page='+page+'&q='+q,
 				 beforeSend: function(objeto){
@@ -48,22 +22,13 @@
 				success:function(data){
 					$(".outer_div").html(data).fadeIn('slow');
 					$('#loader').html('');
-					
-					
+						
 				}
-				
 				
 			})
 
-			
-
-			
-
-		
 		}
 
-	
-		
 	function eliminar (id){
 
 		Swal.fire({
@@ -91,8 +56,6 @@
 				load(1);
 				}
 			});
-			
-			
 			
 		  }
 		})
@@ -212,8 +175,7 @@ $( "#editar_cliente" ).submit(function( event ) {
 					timer: 2500
 				  });
 					
-			}
-				
+			}	
 			
 			load(1);
 			
@@ -254,10 +216,23 @@ $( "#editar_cliente" ).submit(function( event ) {
 		$("#mod_registro").val(nrc_cliente);
 		$("#mod_nit").val(nit_cli);
 		$("#mod_estado_cliente").val(estado_cli);
-		$("#mod_nomcom_cliente").val(nombre_com);		
-		
-		
-		
+		$("#mod_nomcom_cliente").val(nombre_com);
+
+		 $("select").select2({
+			tags: "true",
+			placeholder: "Seleccione",
+			dropdownParent: $('#editCliente .modal-body'),
+			initSelection: function(element, callback) {
+		  },
+			allowClear: true,
+			  cache: false,
+		  }); 
+		  $('select:not(.normal)').each(function () {
+			$(this).select2({
+				dropdownParent: $(this).parent()
+			});
+		}); 
+		  
 		$.ajax({
 			data: "id2=" + municipio_cli,
 			url: "get_municipios.php",
@@ -273,17 +248,8 @@ $( "#editar_cliente" ).submit(function( event ) {
 				
 			},
 		});
-
-		
-	
-		
-		
-		  
-	
 		
 	};  
-
-	
 
 		function eliminar_contacto(id_contact){
 			var q= $("#q").val();
@@ -309,11 +275,9 @@ $( "#editar_cliente" ).submit(function( event ) {
 			});
 			
 			}
-		}	
+		}
 		
-		
-		
-				$('#agregar').on('show.bs.modal', function (event) {
+		  $('#agregar').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Button that triggered the modal
 		  var cliente = button.data('cliente') // Extract info from data-* attributes
 		  var id = button.data('id') // Extract info from data-* attributes
