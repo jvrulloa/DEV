@@ -3,7 +3,7 @@
 {
     private $host = "localhost";
     private $usuario = "root";
-    private $clave = 'P$M7';
+    private $clave = '';
     private $db = "cotizador";
     public $conexion;
     public function __construct()
@@ -23,7 +23,7 @@
   
 $servername = "localhost";
 $username = "root";
-$password = 'P$M7';
+$password = "";
 $dbname = "cotizador";
 
 try {

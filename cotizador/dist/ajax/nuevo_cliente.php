@@ -2,7 +2,7 @@
 	include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 	/*Inicia validacion del lado del servidor*/
 	if (empty($_POST['nombre'])) {
-           $errors[] = "Nombre vacio";
+           $errors[] = "Nombre vacío";
         } else if (!empty($_POST['nombre'])){
 		/* Connect To Database*/
 		require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
@@ -24,13 +24,13 @@
 		} else {
 			$errors []= "Error desconocido.";
 		}
-
+		
 		if (isset($errors)){
-
+			
 			?>
 			<div class="alert alert-danger" role="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>Error!</strong>
+					<strong>Error!</strong> 
 					<?php
 						foreach ($errors as $error) {
 								echo $error;
@@ -40,7 +40,7 @@
 			<?php
 			}
 			if (isset($messages)){
-
+				
 				?>
 				<div class="alert alert-success" role="alert">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>

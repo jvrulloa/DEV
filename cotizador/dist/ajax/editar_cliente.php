@@ -1,21 +1,22 @@
 <?php
 	include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 	/*Inicia validacion del lado del servidor*/
-	if (empty($_POST["mod_id"])) {
-           $errors[] = "ID vacio";
-        }else if (empty($_POST["mod_nombre_cliente"])) {
-           $errors[] = "Nombre vacio";
-        }  else if ($_POST["mod_estado_cliente"]==""){
+	if (empty($_POST['mod_id'])) {
+           $errors[] = "ID vacío";
+        }else if (empty($_POST['mod_nombre_cliente'])) {
+           $errors[] = "Nombre vacío";
+        }  else if ($_POST['mod_estado_cliente']==""){
 			$errors[] = "Selecciona el estado del cliente";
 		}  else if (
-			!empty($_POST["mod_id"]) &&
-			!empty($_POST["mod_nombre_cliente"]) &&
-			$_POST["mod_estado_cliente"]!=""){
+			!empty($_POST['mod_id']) &&
+			!empty($_POST['mod_nombre_cliente']) &&
+			$_POST['mod_estado_cliente']!="" 
+		){
 		/* Connect To Database*/
 		require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 		require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
 		// escaping, additionally removing everything that could be (html/javascript-) code
-		$id_cli=intval($_POST["mod_id"]);
+		$id_cli=intval($_POST['mod_id']);
 		$nombre_cli=mysqli_real_escape_string($con,(strip_tags($_POST["mod_nombre_cliente"],ENT_QUOTES)));
 		$tipo_cli=mysqli_real_escape_string($con,(strip_tags($_POST["mod_tipo_cliente"],ENT_QUOTES)));
 		$dui_cli=mysqli_real_escape_string($con,(strip_tags($_POST["mod_dui_cliente"],ENT_QUOTES)));
@@ -27,7 +28,7 @@
 		$municipio_cli=mysqli_real_escape_string($con,(strip_tags($_POST["mod_muni"],ENT_QUOTES)));
 		$depto_cli=mysqli_real_escape_string($con,(strip_tags($_POST["mod_depto"],ENT_QUOTES)));
 		$dir_cli=mysqli_real_escape_string($con,(strip_tags($_POST["mod_direccion"],ENT_QUOTES)));
-		$estado_cli=intval($_POST["mod_estado_cliente"]);
+		$estado_cli=intval($_POST['mod_estado_cliente']);
 		$correo_cli=mysqli_real_escape_string($con,(strip_tags($_POST["mod_email"],ENT_QUOTES)));
 		
 		
