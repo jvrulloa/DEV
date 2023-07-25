@@ -1,91 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+
+
+
+
+<!-- select2 css -->
+
+<!-- <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="assets/plugins/mdb-bootstrap/css/mdb.min.css" rel="stylesheet">
+    <!--<link href="assets/plugins/bootstrap/css/docs.css" rel="stylesheet">-->
+    <!-- Custom CSS -->
+    <link href="assets/plugins/select2/select2.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet">
 <body>
-  
+<div class="row">
+                        <div class="col-md-6">
+                             <div class="form-floating">
+                                <select class="form-select select_giro" id="select_giro" name="select_giro" aria-label="Default select example">
+                                    <option value=""></option>
+                                </select>
+                                <label class="form-label select-label activate" for="select_giro">Giro de cliente</label>
+                             </div>
+                        </div> 
+                        <div class="col-md-3">
+                            <div class="form-outline">
+                                    <input type="text" class="form-control" id="mod_nit" name="mod_nit" required>
+                                    <label class="form-label" for="form12">Nit del cliente</label>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-outline">
+                                    <input type="text" class="form-control" id="mod_registro"name="mod_registro" required>
+                                    <label class="form-label" for="form12">Nº de registro fiscal</label>
+                            </div>
+                        </div>
+</div>
 
-<form id="user" novalidate>
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="username">
-  </div>
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="password">
-  </div>
-  
-  <button type="submit">Enviar</button>
-</form>
-</body>
+<!-- jQuery -->
 
 
-<script type="text/javascript">
-// ...rest of the initial code omitted for simplicity.
-const { body, validationResult } = require('express-validator');
+<script src="assets/plugins/mdb-bootstrap/js/mdb.min.js"></script>
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/plugins/select2/select2.min.js"></script>
+  <script src="assets/js/custom.min.js"></script>
+<script>
 
-app.post(
-  '/user',
-  // username must be an email
-  body('username').isEmail(),
-  // password must be at least 5 chars long
-  body('password').isLength({ min: 5 }),
-  (req, res) => {
-    // Finds the validation errors in this request and wraps them in an object with handy functions
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    User.create({
-      username: req.body.username,
-      password: req.body.password,
-    }).then(user => res.json(user));
-  },
-);
-
-/* document.getElementById('myForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevenir envío del formulario por defecto
-
-  // Obtener los valores de los campos
-  var nombre = document.getElementById('nombre').value;
-  var email = document.getElementById('email').value;
-
-  // Realizar la validación utilizando Express Validator en el lado del cliente
-  var validationResult = validateInput(nombre, email);
-
-  if (validationResult.isValid) {
-    // Los datos son válidos, puedes continuar con el procesamiento
-    console.log('Datos válidos. Procesando formulario...');
-    // Aquí puedes realizar las acciones necesarias, como enviar el formulario o realizar llamadas AJAX
-  } else {
-    // Los datos no son válidos, muestra los mensajes de error
-    console.log('Datos no válidos. Verifica los errores:');
-    console.log(validationResult.errors);
-  }
+/* $(document).ready(function(){ */
+$('#select_giro').select2({
+ajax: {
+url: "get_giro_copy.php",
+type: "post",
+dataType: 'json',
+delay: 250,
+data: function (params) {
+return {
+searchTerm: params.term // search term
+};
+},
+processResults: function (response) {
+return {
+results: response
+};
+},
+cache: true
+}
 });
-
-function validateInput(nombre, email) {
-  // Realiza la validación utilizando Express Validator
-  // Aquí debes implementar tus propias reglas de validación utilizando Express Validator
-
-  // Ejemplo de validación simple
-  req.check('nombre', 'El nombre es obligatorio').notEmpty();
-  req.check('email', 'El correo electrónico no es válido').isEmail();
-
-  // Obtener los errores de validación
-  var errors = req.validationErrors();
-
-  // Retorna un objeto con el resultado de la validación
-  return {
-    isValid: !errors,
-    errors: errors
-  };
-} */
-
-
+/* }); */
 </script>
-</html>
+
+
+</body>
+                             
+                            
+
