@@ -101,14 +101,6 @@ $clientes = "active";
         <!-- ============================================================== -->
         <!-- ============================================================== -->
       </div>
-      <!-- ============================================================== -->
-      <!-- End Container fluid  -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- footer -->
-      <!--  <script type="text/javascript" >
-$.fn.modal.Constructor.prototype.enforceFocus = function() {};
-      </script> -->
       <?php
       include "footer.php";
       ?>
@@ -138,109 +130,87 @@ $.fn.modal.Constructor.prototype.enforceFocus = function() {};
           });
         });
         $(document).ready(function() {
-        $("#editar_cliente").validate({
-          rules: {
-            mod_dui_cliente: "required",
-            mod_nombre_cliente: "required",
-            mod_nomcom_cliente: "required",
-            mod_email: {
-              required: true,
-              email: true
+          $("#editar_cliente").validate({
+            rules: {
+              mod_dui_cliente: {
+                required: true,
+                minlength: 9
+              },
+              mod_nombre_cliente: {
+                required: true,
+                minlength: 2
+              },
+              mod_estado_cliente: "required",
+              mod_tipo_cliente: "required",
+              mod_nomcom_cliente: {
+                required: true,
+                minlength: 2
+              },
+              mod_giro: "required",
+              mod_nit: {
+                required: true,
+                minlength: 14
+              },
+              mod_registro: "required",
+              mod_email: {
+                required: true,
+                email: true
+              },
+              mod_tel: "required",
+              mod_depto: "required",
+              mod_muni: "required",
+              mod_direccion: "required"
+            },
+            messages: {
+              mod_dui_cliente: {
+                required: "Ingrese Dui valido",
+                minlength: "Dui debe tener 9 digitos"
+              },
+              mod_nombre_cliente: {
+                required: "Please enter a username",
+                minlength: "Your username must consist of at least 2 characters"
+              },
+              mod_estado_cliente: "seleccione estado",
+              mod_tipo_cliente: "Seleccione Tipo de cliente",
+              mod_nomcom_cliente: {
+                required: "Digete nombre comercial valido",
+                minlength: "el nombre comercial debe tener al menos 5 carateres"
+              },
+              mod_giro: "Seleccione un giro",
+              mod_nit: {
+                required: "Ingrese numero de NIT Valido",
+                minlength: "NIT debe contener 14 digitos"
+              },
+              mod_registro: "Ingrese numero de NRC valido",
+              mod_email: {
+                required: "Please enter a valid email address",
+                email: "ingrese dominio valido"
+              },
+              mod_tel: "Ingrese numero de telefono",
+              mod_depto: "Seleccione un departamento",
+              mod_muni: "Lecciones municipio",
+              mod_direccion: "Digire direccion de cliente"
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+              // Add the `invalid-feedback` class to the error element
+              error.addClass("invalid-feedback");
+              if (element.prop("required") === "") {
+                  error.insertAfter(element.next("label"));
+                } else {
+                  error.insertAfter(element);
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+              $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+              $(element).addClass("is-valid").removeClass("is-invalid");
             }
-          },
-          messages: {
-            mod_dui_cliente: "Please enter ID",
-            mod_nombre_cliente: "Please enter  nombre",
-            mod_nomcom_cliente: "Please enter  bussines name",
-            mod_email: "Please enter a valid email address"
-          },
-          errorElement: "em",
-          errorPlacement: function(error, element) {
-            // Add the `invalid-feedback` class to the error element
-            error.addClass("invalid-feedback");
-           if (element.hasClass('select2-hidden-accessible')) {
-              error.insertAfter(element.siblings('span.select2'));
-            } else {
-              error.insertAfter(element);
-            }
-          },
-          highlight: function(element, errorClass, validClass) {
-            $(element).addClass("is-invalid").removeClass("is-valid");
-            $(element).siblings("label").addClass("error");
-          },
-          unhighlight: function(element, aerrorClass, validClass) {
-            $(element).addClass("is-valid").removeClass("is-invalid");
-            $(element).siblings("label").removeClass("error");
-            //  $(element).siblings("label").addClass("ok");
-          },
+          });
         });
-    });
-        /* $.validator.setDefaults({
-          submitHandler: function() {
-            alert("submitted!");
-            //  $("#editar_cliente").valid();
-          }
-        }); */
-        /*
-                $(document).ready(function() {
-                      //$("select").select2();
-                      $("#editar_cliente").validate({
-                          rules: {
-                            mod_nombre_cliente: "required",
-                            mod_nomcom_cliente: "required",
-        					mod_email: {
-                              required: true,
-                              email: true
-                            },
-        					mod_estado_cliente: {
-                              required: true
-                            },
-                            mod_depto: {
-                              required: true
-                            }
-                          },
-                          messages: {
-                            mod_nombre_cliente: "Ingresa un nombre valido",
-                            mod_nomcom_cliente: "Ingresa el nombre comercial",
-                            mod_email: "Ingresa un correo valido",
-        					mod_estado_cliente: {
-                              required: "Ingrese una opcion valida de la lista"
-                            },
-                               mod_depto: {
-                              required: "Ingrese una opcion valida de la lista"
-                            }
-                          },
-                          errorElement: "em",
-                          errorPlacement: function(error, element) {
-                            // Add the `invalid-feedback` class to the error element
-                            error.addClass("invalid-feedback");
-                            if (element.hasClass('select2-hidden-accessible')) {
-                              error.insertAfter(element.siblings('span.select2'));
-                            } else {
-                              error.insertAfter(element);
-                            }
-                          },
-                          highlight: function(element, errorClass, validClass) {
-                            $(element).addClass("is-invalid").removeClass("is-valid");
-                            $(element).siblings("label").addClass("error");
-                          },
-                          unhighlight: function(element, errorClass, validClass) {
-                            $(element).addClass("is-valid").removeClass("is-invalid");
-                            $(element).siblings("label").removeClass("error");
-        					 $(element).siblings("label").addClass("ok");
-                          }
-                        });
-                      });
-              */
       </script>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
   </div>
-  <!-- ============================================================== -->
-  <!-- End Wrapper -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
 </body>
 </html>

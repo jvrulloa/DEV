@@ -12,10 +12,10 @@ if (isset($con)) {
                 <div id="error"></div>
                 <div id="victory"></div>
                 <div class="modal-body">
-                    <form class="form-horizontal needs-validation" novalidate method="post" id="editar_cliente" name="editar_cliente">
+                    <form class="form-horizontal" method="post" id="editar_cliente" name="editar_cliente">
                         <div id="resultados_cliente"></div>
                         <br>
-                        <div class="row">
+                        <div class="form-group row">
                             <div class="col-md-6 p-2">
                                 <div class="form-outline input-group  has-validation ">
                                     <input type="text" class="form-control" id="mod_dui_cliente" name="mod_dui_cliente" aria-describedby="duiCli" onkeyup="fncdui(this,'-',patrondui,true)" minlength="10" pattern=".{10,}" maxlength="10" required />
@@ -31,7 +31,7 @@ if (isset($con)) {
                             </div>
                         </div>
                         <br>
-                        <div class="row">
+                        <div class="form-group row">
                             <div class="col-md-3 p-2" id="estado_cli">
                                 <div class="form-label-group in-border  has-validation">
                                     <select class="form-control" id="mod_estado_cliente" name="mod_estado_cliente" aria-label="Default select example" required>
@@ -39,7 +39,7 @@ if (isset($con)) {
                                         <option value="1">Activo</option>
                                         <option value="2">Inactivo</option>
                                     </select>
-                                    <label for="mod_estado_cliente">Estado del cliente</label>
+                                    <label class="form-label" for="mod_estado_cliente">Estado del cliente</label>
                                 </div>
                             </div>
                             <div class="col-md-3 p-2" id="tipo_cli">
@@ -50,7 +50,7 @@ if (isset($con)) {
                                         <option value="2">Juridico</option>
                                         <option value="3">Exento</option>
                                     </select>
-                                    <label for="mod_tipo_cliente">Tipo de cliente</label>
+                                    <label class="form-label" for="mod_tipo_cliente">Tipo de cliente</label>
                                 </div>
                             </div>
                             <div class="col-md-6 p-2" id="natural2">
@@ -60,7 +60,7 @@ if (isset($con)) {
                                 </div>
                             </div>
                         </div>
-                        <div class="row nat " id="natural">
+                        <div class="form-group row nat " id="natural">
                             <div class="col-md-6 p-2">
                                 <div class="form-label-group in-border  has-validation">
                                     <select class="form-select select2" id="mod_giro" name="mod_giro" aria-label="validationServer04Feedback" required>
@@ -73,7 +73,7 @@ if (isset($con)) {
                                             <option value="<?php echo $idgiro ?>"><?php echo $nombregiro ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <label for="mod_giro">Giro o actividad economica</label>
+                                    <label class="form-label" for="mod_giro">Giro o actividad economica</label>
                                 </div>
                             </div>
                             <div class="col-md-3 p-2">
@@ -93,7 +93,7 @@ if (isset($con)) {
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="form-group row">
                             <div class="col-md-7 p-2">
                                 <div class="form-outline">
                                     <input type="email" class="form-control  has-validation" id="mod_email" name="mod_email" required />
@@ -103,12 +103,12 @@ if (isset($con)) {
                             <div class="col-md-5 p-2">
                                 <div class="form-outline input-group  has-validation">
                                     <input type="text" class="form-control" id="mod_tel" name="mod_tel" onkeyup="fnc1(this,'-',patron1,true)" required />
-                                    <label class="form-label" for="form12">Teléfono</label>
+                                    <label class="form-label" class="form-label" for="form12">Teléfono</label>
                                 </div>
                             </div>
                         </div>
                         <br>
-                        <div class="row">
+                        <div class="form-group row">
                             <div class="col-md-6 p-2">
                                 <div class="form-label-group in-border  has-validation">
                                     <select class="form-control " id="mod_depto" name="mod_depto" aria-describeby="depCli" required>
@@ -120,7 +120,7 @@ if (isset($con)) {
                                             <option value="<?php echo $iddepto ?>"><?php echo $departamento['dep_nombre'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <label for="mod_depto">Departamento</label>
+                                    <label class="form-label" for="mod_depto">Departamento</label>
                                     <div id="depCli" class="invalid-feedback">
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ if (isset($con)) {
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="form-group row">
                             <div class="col-md-12 col-sm-12 col-lg-12 col-xlg-12 col-xs-12 p-2">
                                 <div class="form-outline input-group  has-validation">
                                     <textarea class="form-control" id="mod_direccion" name="mod_direccion" rows="2" onblur="this.value=this.value.toUpperCase();" required></textarea>
@@ -143,7 +143,7 @@ if (isset($con)) {
                             </div>
                         </div>
                         <br>
-                        <div class="row">
+                        <div class="form-group row">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

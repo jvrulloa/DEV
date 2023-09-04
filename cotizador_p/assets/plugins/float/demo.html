@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- /**
+		* Copyright (c) 2020. ExacTI Technology Solutions
+		* MIT License.
+		* https://exacti.com.br
+		* floating-labels - https://github.com/exacti/floating-labels
+		*/ -->
+		<title>Floating Labels With Animation For Bootstrap Examples</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/flatly/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="floating-labels.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/css/intlTelInput.min.css" media="screen">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.0/js/intlTelInput.min.js"></script>
+		<style>
+.container { margin: 150px auto; }
+body { background-color: #fafafa; }
+
+		</style>
+		<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/form/floating-labels-animation-bootstrap.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul><div id="carbon-block"></div>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+		<div class="container">
+
+			<h1 class="mb-5">Floating Labels With Animation For Bootstrap Examples</h1>
+
+			<div class="row">
+				<div class="col-md">
+					<h3 class="mt-5 mb-3">Normal</h3>
+
+					<div class="mb-3">
+						<input type="text" id="tt2" class="form-control shadow-none" placeholder="Floating Label" />
+					</div>
+
+					<div class="mb-3">
+						<input type="text" id="tt3" class="form-control form-control-lg shadow-none" placeholder="Floating Label lg" />
+					</div>
+
+					<div class="mb-3">
+						<textarea id="tt" class="form-control shadow-none" placeholder="Floating Label area" rows="4"></textarea>
+					</div>
+
+					<div class="mb-3">
+						<select class="custom-select" id="">
+							<option selected>Choose...</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						  </select>
+					</div>
+
+				</div>
+
+				<div class="col-md">
+					<h3 class="mt-5 mb-3">Float</h3>
+
+					<div class="form-label-group">
+						<input type="text" id="tt5" class="form-control shadow-none" placeholder="Floating Label" />
+						<label for="tt5">Floating Label</label>
+					</div>
+
+					<div class="form-label-group">
+						<input type="text" id="tt6" class="form-control form-control-lg shadow-none" placeholder="Floating Label lg" />
+						<label for="tt6" class="form-control-lg">Floating Label lg</label>
+					</div>
+
+					<div class="form-label-group">
+						<textarea id="tt4" class="form-control shadow-none" placeholder="Floating Label area" rows="4"></textarea>
+						<label for="tt4">Floating Label area</label>
+					</div>
+
+					<div class="form-label-group">
+						<select class="custom-select shadow-none" id="ttsel1">
+							<option selected>Choose...</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						  </select>
+						  <label for="ttsel1" >Floating Label</label>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<h3 class="mt-5 mb-3">Float In-Border</h3>
+
+					<div class="form-label-group in-border">
+						<input type="text" id="tt8" class="form-control shadow-none" placeholder="Floating Label" />
+						<label for="tt8">Floating Label</label>
+					</div>
+
+					<div class="form-label-group in-border">
+						<input type="text" id="tt9" class="form-control form-control-lg shadow-none" placeholder="Floating Label lg" />
+						<label for="tt9" class="form-control-lg">Floating Label lg</label>
+					</div>
+
+					<div class="form-label-group in-border">
+						<textarea id="tt7" class="form-control shadow-none" placeholder="Floating Label area" rows="4"></textarea>
+						<label for="tt7">Floating Label area</label>
+					</div>
+
+
+					<div class="form-label-group in-border">
+						<select class="custom-select" id="ttsel2">
+							<option selected>Choose...</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						  </select>
+						  <label for="ttsel2" >Floating Label</label>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<h3 class="mt-5 mb-3">Float Outline</h3>
+
+					<div class="form-label-group outline">
+						<input type="text" id="tt8" class="form-control shadow-none" placeholder="Floating Label" />
+						<span><label for="tt8">Floating Label</label></span>
+					</div>
+
+					<div class="form-label-group outline">
+						<input type="text" id="tt9" class="form-control form-control-lg shadow-none" placeholder="Floating Label lg" />
+						<span><label for="tt9" class="form-control-lg">Floating Label lg</label></span>
+					</div>
+
+					<div class="form-label-group outline">
+						<textarea id="tt7" class="form-control shadow-none" placeholder="Floating Label area" rows="4"></textarea>
+						<span><label for="tt7">Floating Label area</label></span>
+					</div>
+
+
+					<div class="form-label-group outline">
+						<select class="custom-select shadow-none" id="ttsel2">
+							<option selected>Choose...</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						  </select>
+						  <span><label for="ttsel2" >Floating Label</label></span>
+					</div>
+				</div>
+			</div>
+
+			<h3 class="mt-5">Intl-tel-input</h3>
+			<div class="row">
+
+				<div class="col-sm">
+					<h4 class=" mb-3">Float</h4>
+					<div class="form-label-group">
+						<input name="tel[main]" type="tel" class="form-control" data-parsley-phone-validate id="tel" placeholder="Telefone"  />
+						<label for="tel">Telefone</label>
+					</div>
+				</div>
+				<div class="col-sm">
+					<h4 class=" mb-3">Right Float</h4>
+					<div class="form-label-group iti-right">
+						<input name="tel[main]" type="tel" class="form-control" data-parsley-phone-validate id="tel" placeholder="Telefone"  />
+						<label for="tel">Telefone</label>
+					</div>
+				</div>
+				<div class="col-sm">
+					<h4 class="mb-3">Float In-Border</h4>
+					<div class="form-label-group in-border">
+						<input name="tel[main]" type="tel" class="form-control" data-parsley-phone-validate id="tel" placeholder="Telefone"  />
+						<label for="tel">Telefone</label>
+					</div>
+				</div>
+				<div class="col-sm">
+					<h4 class="mb-3">Right Float In-Border</h4>
+					<div class="form-label-group in-border iti-right">
+						<input name="tel[main]" type="tel" class="form-control" data-parsley-phone-validate id="tel" placeholder="Telefone"  />
+						<label for="tel">Telefone</label>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-md">
+					<div class="card text-white bg-warning mx-auto mb-3" style="max-width: 18rem;">
+						<div class="card-header"><h4 class="m-0"> Float Outline</h4></div>
+
+						<div class="card-body">
+							<div class="form-label-group outline border-danger ">
+								<input name="tel[main]" type="tel" class="form-control border-white text-white" data-parsley-phone-validate id="tel4" placeholder="Telefone"  />
+								<span class="labe"><label for="tel4" class="text-white">Telefone</label></span>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+				<div class="col-md">
+					<div class="card text-white bg-dark mx-auto mb-3" style="max-width: 18rem;">
+						<div class="card-header"><h4 class="m-0">Right Float Outline</h4></div>
+
+						<div class="card-body">
+							<div class="form-label-group outline iti-right border-warning">
+								<input name="tel[main]" type="tel" class="form-control text-white" data-parsley-phone-validate id="tel4" placeholder="Telefone"  />
+								<span class="labe"><label for="tel4" class="text-white">Telefone</label></span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+		<script>
+			const telInput = document.querySelectorAll('input[type="tel"]');
+
+			telInput.forEach(function(element, index, array){
+				var iti = [];
+				iti[index] = window.intlTelInput(element, {
+					initialCountry: "auto",
+					geoIpLookup: function(callback) {
+							$.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+							var countryCode = (resp && resp.country) ? resp.country : "BR";
+								/* $("#pais").val(resp.country);
+								$("#estado").val(resp.region);
+								$("#cidade").val(resp.city);
+								//alert(resp.country); */
+							callback(countryCode);
+							});
+						},
+					utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/js/utils.min.js",
+					autoPlaceholder: "aggressive",
+					preferredCountries: ["br", "us", "ca", "uy"],
+					hiddenInput: "full",
+					customContainer: "d-flex intl-tel-input",
+					formatOnDisplay: true
+				});
+
+				element.addEventListener('keyup', function(){
+					formatIntlTelInput(iti[index]);
+				});
+				element.addEventListener('change', function(){
+					formatIntlTelInput(iti[index]);
+				});
+			});
+
+
+
+
+			function formatIntlTelInput(e) {
+				//console.log(e);
+				if (typeof intlTelInputUtils !== 'undefined') { // utils are lazy loaded, so must check
+					var currentText = e.getNumber(intlTelInputUtils.numberFormat.E164);
+					if (typeof currentText === 'string') { // sometimes the currentText is an object :)
+						e.setNumber(currentText); // will autoformat because of formatOnDisplay=true
+					}
+				}
+			}
+
+
+			$('.intl-tel-input, .iti').find('input.form-control').each(function(index, element) {
+				let label = $(element).parent().find('~ label, ~ .labe');
+				$(element).after(label);
+				//console.log(label);
+			});
+
+		</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script>
+try {
+  fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+    return true;
+  }).catch(function(e) {
+    var carbonScript = document.createElement("script");
+    carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+    carbonScript.id = "_carbonads_js";
+    document.getElementById("carbon-block").appendChild(carbonScript);
+  });
+} catch (error) {
+  console.log(error);
+}
+</script>
+	</body>
+</html>

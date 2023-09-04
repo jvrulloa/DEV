@@ -1,0 +1,3 @@
+<pre id="line1"><span>			</span><span class="error" title="Encontrada etiqueta de inicio sin ver primero un doctype. Se esperaba “<!DOCTYPE html>”.">&lt;<span class="start-tag">option</span> <span class="attribute-name">value</span>="<a class="attribute-value"></a>"&gt;</span><span>Selecciona</span><span>&lt;/<span class="end-tag">option</span>&gt;</span><span>
+<span id="line2"></span>			
+<span id="line3"></span></span></pre>

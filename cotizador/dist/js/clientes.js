@@ -1,5 +1,7 @@
 		$(document).ready(function(){
+
 			load(1);
+			
 		});
 		$("select").select2({
 			insertTag: function (data, tag) {
@@ -7,9 +9,11 @@
 			 data.push(tag);
 			}
 		 });
+
 		function load(page){
 			var q= $("#q").val();
 			$("#loader").fadeIn('slow');
+			
 			$.ajax({
 				url:'dist/ajax/buscar_clientes.php?action=ajax&page='+page+'&q='+q,
 				 beforeSend: function(objeto){
@@ -18,10 +22,15 @@
 				success:function(data){
 					$(".outer_div").html(data).fadeIn('slow');
 					$('#loader').html('');
+						
 				}
+				
 			})
+
 		}
+
 	function eliminar (id){
+
 		Swal.fire({
 		  title: 'Estas seguro?',
 		  text: "Realmente deseas eliminar el cliente",
@@ -30,10 +39,11 @@
 		  confirmButtonColor: '#3085d6',
 		  cancelButtonColor: '#d33',
 		  confirmButtonText: 'Si, eliminarlo!',
-		  cancelButtonText: "No, cancelar!",
+		  cancelButtonText: "No, cancelar!",  
 		}).then((result) => {
 		  if (result.value) {
 			var q= $("#q").val();
+			
 			$.ajax({
 				type: "GET",
 				url: "./ajax/buscar_clientes.php",
@@ -46,18 +56,22 @@
 				load(1);
 				}
 			});
+			
 		  }
 		})
 	}
+
 		function remove_alert(){
 				window.setTimeout(function() {
 					$(".alert").fadeTo(500, 0).slideUp(500, function(){
 					$(this).remove();
 				});
-				}, 5000);
+				}, 5000); 
 			}
+  
 $( "#guardar_cliente" ).submit(function( event ) {
   $('#guardar_datos').attr("disabled", true);
+  
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
@@ -75,8 +89,10 @@ $( "#guardar_cliente" ).submit(function( event ) {
 	});
   event.preventDefault();
 })
+
 $( "#guardar_contacto" ).submit(function( event ) {
   $('.guardar_datos').attr("disabled", true);
+  
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
@@ -93,9 +109,12 @@ $( "#guardar_contacto" ).submit(function( event ) {
 		  }
 	});
   event.preventDefault();
+  
 })
+
 $( "#editar_contacto" ).submit(function( event ) {
   $('.actualizar_datos').attr("disabled", true);
+  
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
@@ -113,8 +132,10 @@ $( "#editar_contacto" ).submit(function( event ) {
 	});
   event.preventDefault();
 })
+
 $( "#editar_cliente" ).submit(function( event ) {
   $('#actualizar_datos').attr("disabled", true);
+  
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
@@ -126,44 +147,46 @@ $( "#editar_cliente" ).submit(function( event ) {
 			success: function(datos){
 			//$("#resultados_cliente").html(datos);
 			$('#actualizar_datos').attr("disabled", false);
-			if(datos=="ok"){
+			if(datos=='ok'){
 				Swal.fire({
+					//position: 'top-end',
 					icon: 'success',
 					title: 'Cliente actualizado correctamente',
 					showConfirmButton: false,
 					timer: 2500
 				  });
 			}
-			else if (datos=="Nombre vacio")
+			else if (datos=='ID vacío'||datos=='Nombre vacío'||datos=='Selecciona el estado del cliente'||datos=='error desconocido')
 			{
 					Swal.fire({
+						//position: 'top-end',
 						icon: 'error',
 						title: 'Error campo: '.datos,
 						showConfirmButton: false,
 						timer: 2500
 					  });
+					
 			}
-			else if (datos=="error desconocido"){
+			else{
 				Swal.fire({
 					icon: 'error',
-					title: '¡Error desconocido!',
+					title: '¡Error en la base de datos!',
 					showConfirmButton: false,
 					timer: 2500
 				  });
-			}else{
-				Swal.fire({
-					icon: 'error',
-					title: '¡Error al escribir en la table Clientes!',
-					showConfirmButton: false,
-					timer: 2500
-				  });
-			}
+					
+			}	
+			
 			load(1);
+			
 		  },
+		 
 	});
   event.preventDefault();
 })
+
 	function obtener_datos(id){
+			
 		var idval = $("#id_cli_"+id).val();
 		var dui_cliente = $("#dui_cli_"+id).val();
 		var nombre_cliente = $("#nombre_cli_"+id).val();
@@ -178,12 +201,14 @@ $( "#editar_cliente" ).submit(function( event ) {
 		var nit_cli = $("#nit_cli_"+id).val();
 		var estado_cli = $("#estado_cli_"+id).val();
 		var nombre_com = $("#comercio_cli_"+id).val();
+		
+		
 		$("#mod_id").val(id);
-		$("#mod_dui_cliente").val(dui_cliente);
-		$("#mod_nombre_cliente").val(nombre_cliente);
+		$("#mod_dui_cliente").val(dui_cliente);	
+		$("#mod_nombre_cliente").val(nombre_cliente);	
 		$("#mod_tipo_cliente").val(tipo_cliente);
-		$("#mod_muni").val(municipio_cli);
-		$("#mod_depto").val(depto_cli);
+		$("#mod_muni").val(municipio_cli);	
+		$("#mod_depto").val(depto_cli);	
 		$("#mod_direccion").val(dir_cliente);
 		$("#mod_tel").val(tel_cliente);
 		$("#mod_email").val(email_cliente);
@@ -191,10 +216,9 @@ $( "#editar_cliente" ).submit(function( event ) {
 		$("#mod_registro").val(nrc_cliente);
 		$("#mod_nit").val(nit_cli);
 		$("#mod_estado_cliente").val(estado_cli);
-		$( "#mod_nomcom_cliente" ).val( nombre_com );
+		$("#mod_nomcom_cliente").val(nombre_com);
 
-
-			 $("select").select2({
+		 $("select").select2({
 			tags: "true",
 			placeholder: "Seleccione",
 			dropdownParent: $('#editCliente .modal-body'),
@@ -202,33 +226,13 @@ $( "#editar_cliente" ).submit(function( event ) {
 		  },
 			allowClear: true,
 			  cache: false,
-		  });
+		  }); 
 		  $('select:not(.normal)').each(function () {
 			$(this).select2({
 				dropdownParent: $(this).parent()
 			});
-		});
-
-			$("#mod_depto").change(function(){
-$.ajax({
-    data:  "id="+$("#mod_depto").val(),
-    url:   'get_municipios.php',
-    type:  'post',
-    dataType: 'json',
-    beforeSend: function () {  },
-    success:  function (response) {
-        var html = "";
-        html+= '<option value="">Seleccione</option>';
-        $.each(response, function( index, value ) {
-            html+= '<option value="'+value.id+'">'+value.nombre+"</option>";
-        });
-        $("#mod_muni").html(html);
-    },
-    error:function(){
-        html+= '<option value="">Seleccione</option>'
-    }
-});
-});
+		}); 
+		  
 		$.ajax({
 			data: "id2=" + municipio_cli,
 			url: "get_municipios.php",
@@ -241,12 +245,16 @@ $.ajax({
 					html += '<option value="' + value.id + '">' + value.nombre + "</option>";
 				});
 				$("#mod_muni").html(html);
+				
 			},
 		});
-	};
+		
+	};  
+
 		function eliminar_contacto(id_contact){
 			var q= $("#q").val();
-			if (confirm("Realmente deseas eliminar el contacto")){
+			if (confirm("Realmente deseas eliminar el contacto")){	
+			
 				$.ajax({
 				type: "GET",
 				url: "./ajax/buscar_clientes.php",
@@ -260,37 +268,39 @@ $.ajax({
 				window.setTimeout(function() {
 						$(".alert").fadeTo(500, 0).slideUp(500, function(){
 						$(this).remove();
+						
 						});
-							}, 5000);
+							}, 5000); 
 				}
 			});
+			
 			}
 		}
-$( '#agregar' ).on( 'show.bs.modal', function ( event )
-{
-	var button = $( event.relatedTarget ) // Button that triggered the modal
-	var cliente = button.data( 'cliente' ) // Extract info from data-* attributes
-	var id = button.data( 'id' ) // Extract info from data-* attributes
-	// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-	// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	var modal = $( this )
-	modal.find( '.modal-title' ).text( 'Agregar contacto a: ' + cliente )
-	modal.find( '.modal-body #guardar_contacto #id_client' ).val( id )
-} ),
-	$( '#edit' ).on( 'show.bs.modal', function ( event )
-	{
-		var button = $( event.relatedTarget ) // Button that triggered the modal
-		var cliente = button.data( 'cliente' ) // Extract info from data-* attributes
-		var nombre_contact = button.data( 'nombre_contact' ) // Extract info from data-* attributes
-		var telefono_contact = button.data( 'telefono_contact' ) // Extract info from data-* attributes
-		var email_contact = button.data( 'email_contact' ) // Extract info from data-* attributes
-		var id_contact = button.data( 'id_contact' ) // Extract info from data-* attributes
-		// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-		// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-		var modal = $( this )
-		modal.find( '.modal-title' ).text( 'Editar contacto del cliente: ' + cliente )
-		modal.find( '.modal-body #editar_contacto #id_contact' ).val( id_contact )
-		modal.find( '.modal-body #editar_contacto #nombre_contact' ).val( nombre_contact )
-		modal.find( '.modal-body #editar_contacto #telefono_contact' ).val( telefono_contact )
-		modal.find( '.modal-body #editar_contacto #email_contact' ).val( email_contact )
-	} );
+		
+		  $('#agregar').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var cliente = button.data('cliente') // Extract info from data-* attributes
+		  var id = button.data('id') // Extract info from data-* attributes
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title').text('Agregar contacto a: ' + cliente)
+		  modal.find('.modal-body #guardar_contacto #id_client').val(id)
+		})
+		
+		$('#edit').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var cliente = button.data('cliente') // Extract info from data-* attributes
+		  var nombre_contact = button.data('nombre_contact') // Extract info from data-* attributes
+		  var telefono_contact = button.data('telefono_contact') // Extract info from data-* attributes 
+		  var email_contact = button.data('email_contact') // Extract info from data-* attributes
+		  var id_contact = button.data('id_contact') // Extract info from data-* attributes
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title').text('Editar contacto del cliente: ' + cliente)
+		  modal.find('.modal-body #editar_contacto #id_contact').val(id_contact)
+		  modal.find('.modal-body #editar_contacto #nombre_contact').val(nombre_contact)
+		  modal.find('.modal-body #editar_contacto #telefono_contact').val(telefono_contact)
+		  modal.find('.modal-body #editar_contacto #email_contact').val(email_contact)
+		})
